@@ -5,7 +5,6 @@ class CreateCards < ActiveRecord::Migration[6.1]
       t.string :color
       t.integer :cost
       t.integer :health
-      t.string :type
       t.string :rarity
       t.string :set
 

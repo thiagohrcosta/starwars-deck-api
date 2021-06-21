@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_214745) do
     t.string "color"
     t.integer "cost"
     t.integer "health"
-    t.string "type"
     t.string "rarity"
     t.string "set"
     t.datetime "created_at", precision: 6, null: false
