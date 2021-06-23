@@ -2,10 +2,12 @@ import React from 'react';
 
 const Banner = () => {
   return(
-    <>
-      <img className='w-100' src="https://res.cloudinary.com/dloadb2bx/image/upload/v1624408054/1609117_f5iwh3.jpg">
-      </img>
-    </>
+    <div className='banner-bg'>
+      <div className='banner-title'>
+        <h1>STAR WARS API</h1>
+        <h3>The best place to find your card and fight for the universe</h3>
+      </div>      
+    </div>
   )
 }
 
