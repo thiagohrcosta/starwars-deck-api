@@ -1,3 +1,8 @@
 module.exports = {
-  reactStrictMode: true,
+  images: {
+    domains: ['localhost']
+  },
+  env: {
+    apiUrl: 'https://localhost:3000'
+  }
 }
