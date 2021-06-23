@@ -1,0 +1,545 @@
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_development"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_test"[0m
+  [1m[35m (2876.3ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (848.3ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (268.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (251.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (24.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 21:27:48.292860"], ["updated_at", "2021-06-21 21:27:48.292860"]]
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210621212755)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (182.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (52.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210621212755"]]
+  [1m[36mTRANSACTION (26.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCards (20210621213221)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (112.0ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "type" character varying, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210621213221"]]
+  [1m[36mTRANSACTION (20.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToCards (20210621214300)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "cards" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210621214300"]]
+  [1m[36mTRANSACTION (33.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 18:44:45 -0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file /home/thiago/GiHubProjetos/starwars-deck-api/app/controllers/api/v1/cards_controller.rb to define constant Api::V1::CardsController, but didn't):
+  
+zeitwerk (2.4.2) lib/zeitwerk/loader/callbacks.rb:18:in `on_file_autoloaded'
+zeitwerk (2.4.2) lib/zeitwerk/kernel.rb:27:in `block in require'
+zeitwerk (2.4.2) lib/zeitwerk/kernel.rb:26:in `tap'
+zeitwerk (2.4.2) lib/zeitwerk/kernel.rb:26:in `require'
+activesupport (6.1.3.2) lib/active_support/inflector/methods.rb:288:in `const_get'
+activesupport (6.1.3.2) lib/active_support/inflector/methods.rb:288:in `block in constantize'
+activesupport (6.1.3.2) lib/active_support/inflector/methods.rb:284:in `each'
+activesupport (6.1.3.2) lib/active_support/inflector/methods.rb:284:in `inject'
+activesupport (6.1.3.2) lib/active_support/inflector/methods.rb:284:in `constantize'
+activesupport (6.1.3.2) lib/active_support/dependencies/zeitwerk_integration.rb:19:in `constantize'
+actionpack (6.1.3.2) lib/action_dispatch/http/request.rb:93:in `controller_class_for'
+actionpack (6.1.3.2) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (6.1.3.2) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (6.1.3.2) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (6.1.3.2) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3.2) lib/action_dispatch/routing/route_set.rb:842:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3.2) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.3.2) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 18:45:56 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 4.4ms | Allocations: 1078)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 1.7ms | Allocations: 2626)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserToCards (20210621214651)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "cards" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (58.6ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210621214651"]]
+  [1m[36mTRANSACTION (63.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4435358387599323345)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPhotoToCard (20210621214745)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "cards" ADD "photo" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210621214745"]]
+  [1m[36mTRANSACTION (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4435358387599323345)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$12$Ux8kxrQwfP/81C37k1iGouGtD8rrvIBdjFQIcP.q3I3qNIj4n/gbS"], ["created_at", "2021-06-21 21:51:54.436891"], ["updated_at", "2021-06-21 21:51:54.436891"]]
+  [1m[36mTRANSACTION (169.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (447.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_development"[0m
+  [1m[35m (310.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_test"[0m
+  [1m[35m (853.2ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (808.4ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (132.6ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (62.2ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (102.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (63.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (63.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (105.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (7.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (140.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 21:53:10.598628"], ["updated_at", "2021-06-21 21:53:10.598628"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 21:53:10.623878"], ["updated_at", "2021-06-21 21:53:10.623878"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (114.9ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (117.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (64.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (130.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (20.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (130.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 21:53:11.464567"], ["updated_at", "2021-06-21 21:53:11.464567"]]
+  [1m[36mTRANSACTION (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-06-21 21:53:11.486612"], ["key", "environment"]]
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 21:53:11.505740"], ["updated_at", "2021-06-21 21:53:11.505740"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$12$zrcv9TDjcPo9tNJZ1oe85egdbP7mowQYgWEDPTtaWVqtSbEFSPWvG"], ["created_at", "2021-06-21 21:53:11.851561"], ["updated_at", "2021-06-21 21:53:11.851561"]]
+  [1m[36mTRANSACTION (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (1.0ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 16], ["health", 13], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 21:53:11.895682"], ["updated_at", "2021-06-21 21:53:11.895682"], ["name", "Darth Vader"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312128/01010_jfxrqj.jpg"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 18:53:16 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 35.8ms | Allocations: 11545)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 13.2ms | Allocations: 12661)
+
+
+  
+ActionView::Template::Error (undefined method `type' for #<Card:0x00007f9e88367990>):
+    1: json.array! @cards do |card|
+    2:   json.extract! card, :id, :name, :photo, :affiliation, :color, :cost, :health, :type, :rarity, :set
+    3: end
+  
+app/views/api/v1/cards/index.json.jbuilder:2
+app/views/api/v1/cards/index.json.jbuilder:1
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 18:53:28 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 3.7ms | Allocations: 1115)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.0ms | Allocations: 1853)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (274.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_development"[0m
+  [1m[35m (310.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_test"[0m
+  [1m[35m (928.9ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (819.3ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (172.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (145.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (63.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (62.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (7.9ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (108.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (5.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (141.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 22:05:24.099999"], ["updated_at", "2021-06-21 22:05:24.099999"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 22:05:24.123402"], ["updated_at", "2021-06-21 22:05:24.123402"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (120.1ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (129.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (76.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (152.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (10.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (176.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 22:05:25.018247"], ["updated_at", "2021-06-21 22:05:25.018247"]]
+  [1m[36mTRANSACTION (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-06-21 22:05:25.049700"], ["key", "environment"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 22:05:25.060008"], ["updated_at", "2021-06-21 22:05:25.060008"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$12$d2BvkK6ntIxFtnwiwFgXiO5WSaldX4HnHyaG.eECXk7L6YepyWn/u"], ["created_at", "2021-06-21 22:05:25.466014"], ["updated_at", "2021-06-21 22:05:25.466014"]]
+  [1m[36mTRANSACTION (18.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (1.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 16], ["health", 13], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.523618"], ["updated_at", "2021-06-21 22:05:25.523618"], ["name", "Darth Vader"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312128/01010_jfxrqj.jpg"]]
+  [1m[36mTRANSACTION (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 10], ["health", 11], ["rarity", "Starter"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.548760"], ["updated_at", "2021-06-21 22:05:25.548760"], ["name", "Kylo Ren"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312473/01011_eyfprs.jpg"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 11], ["health", 10], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.570673"], ["updated_at", "2021-06-21 22:05:25.570673"], ["name", "Count Dooku"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312529/01009_owofg6.jpg"]]
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 11], ["health", 11], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.591699"], ["updated_at", "2021-06-21 22:05:25.591699"], ["name", "Jabba The Hutt"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312587/01020_ydlbsr.jpg"]]
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (1.0ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 12], ["health", 10], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.614149"], ["updated_at", "2021-06-21 22:05:25.614149"], ["name", "Jango Fett"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312651/01021_xg29za.jpg"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.8ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 9], ["health", 8], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.646798"], ["updated_at", "2021-06-21 22:05:25.646798"], ["name", "Tusken Raider"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312729/01022_efpgtk.jpg"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 12], ["health", 11], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.657519"], ["updated_at", "2021-06-21 22:05:25.657519"], ["name", "Captain Phasma"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312794/01001_dgmpci.jpg"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 7], ["health", 7], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.668721"], ["updated_at", "2021-06-21 22:05:25.668721"], ["name", "First Order Stormtrooper"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312869/01002_sfbh0b.jpg"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 13], ["health", 10], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:05:25.679326"], ["updated_at", "2021-06-21 22:05:25.679326"], ["name", "General Grievous"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312938/01003_brp4s9.jpg"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 19:06:16 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (2.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 25.9ms | Allocations: 5255)
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 15.7ms | Allocations: 5649)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (289.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_development"[0m
+  [1m[35m (297.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "starwars_deck_api_test"[0m
+  [1m[35m (878.4ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (762.4ms)[0m  [1m[35mCREATE DATABASE "starwars_deck_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (168.0ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (87.2ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (114.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (63.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (85.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (7.5ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (140.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (8.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (140.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 22:24:37.780462"], ["updated_at", "2021-06-21 22:24:37.780462"]]
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 22:24:37.810066"], ["updated_at", "2021-06-21 22:24:37.810066"]]
+  [1m[36mTRANSACTION (68.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (153.8ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "affiliation" character varying, "color" character varying, "cost" integer, "health" integer, "rarity" character varying, "set" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "user_id" bigint NOT NULL, "photo" character varying)[0m
+  [1m[35m (73.8ms)[0m  [1m[35mCREATE INDEX "index_cards_on_user_id" ON "cards" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (132.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (64.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (64.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (8.9ms)[0m  [1m[35mALTER TABLE "cards" ADD CONSTRAINT "fk_rails_8ef7749967"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (153.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210621214745)[0m
+  [1m[35m (9.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210621212755),
+(20210621213221),
+(20210621214300),
+(20210621214651);
+
+[0m
+  [1m[35m (153.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-21 22:24:38.792031"], ["updated_at", "2021-06-21 22:24:38.792031"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-06-21 22:24:38.812593"], ["key", "environment"]]
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "70678d94dc43eaba0873c72c67657fdd25547b18"], ["created_at", "2021-06-21 22:24:38.835048"], ["updated_at", "2021-06-21 22:24:38.835048"]]
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$12$hXih5hE/0B1bdwj.IWODb.2tLfMcLq8pzpRVD2/hVb0nMvgkY9riS"], ["created_at", "2021-06-21 22:24:39.215793"], ["updated_at", "2021-06-21 22:24:39.215793"]]
+  [1m[36mTRANSACTION (53.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (1.4ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 16], ["health", 13], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.299981"], ["updated_at", "2021-06-21 22:24:39.299981"], ["name", "Darth Vader"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312128/01010_jfxrqj.jpg"]]
+  [1m[36mTRANSACTION (54.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 10], ["health", 11], ["rarity", "Starter"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.364134"], ["updated_at", "2021-06-21 22:24:39.364134"], ["name", "Kylo Ren"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312473/01011_eyfprs.jpg"]]
+  [1m[36mTRANSACTION (48.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Force"], ["cost", 11], ["health", 10], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.421569"], ["updated_at", "2021-06-21 22:24:39.421569"], ["name", "Count Dooku"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312529/01009_owofg6.jpg"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 11], ["health", 11], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.444721"], ["updated_at", "2021-06-21 22:24:39.444721"], ["name", "Jabba The Hutt"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312587/01020_ydlbsr.jpg"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 12], ["health", 10], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.464730"], ["updated_at", "2021-06-21 22:24:39.464730"], ["name", "Jango Fett"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312651/01021_xg29za.jpg"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.8ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Rogue"], ["cost", 9], ["health", 8], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.486448"], ["updated_at", "2021-06-21 22:24:39.486448"], ["name", "Tusken Raider"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312729/01022_efpgtk.jpg"]]
+  [1m[36mTRANSACTION (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 12], ["health", 11], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.509659"], ["updated_at", "2021-06-21 22:24:39.509659"], ["name", "Captain Phasma"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312794/01001_dgmpci.jpg"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 7], ["health", 7], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.530881"], ["updated_at", "2021-06-21 22:24:39.530881"], ["name", "First Order Stormtrooper"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312869/01002_sfbh0b.jpg"]]
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Villain"], ["color", "Command"], ["cost", 13], ["health", 10], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.564472"], ["updated_at", "2021-06-21 22:24:39.564472"], ["name", "General Grievous"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624312938/01003_brp4s9.jpg"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Command"], ["cost", 12], ["health", 11], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.575120"], ["updated_at", "2021-06-21 22:24:39.575120"], ["name", "Leia Organa"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313109/01028_xz9ykq.jpg"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Command"], ["cost", 14], ["health", 12], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.585734"], ["updated_at", "2021-06-21 22:24:39.585734"], ["name", "Poe Dameron"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313183/01029_sevy32.jpg"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Command"], ["cost", 10], ["health", 9], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.596911"], ["updated_at", "2021-06-21 22:24:39.596911"], ["name", "Admiral Ackbar"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313846/01027_pvbwkh.jpg"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Force"], ["cost", 15], ["health", 12], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.608051"], ["updated_at", "2021-06-21 22:24:39.608051"], ["name", "Luke Skywalker"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313778/01035_bfxl91.jpg"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Force"], ["cost", 13], ["health", 11], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.619180"], ["updated_at", "2021-06-21 22:24:39.619180"], ["name", "Qui-Gon Jinn"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313915/01037_put64f.jpg"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Force"], ["cost", 9], ["health", 10], ["rarity", "Starter"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.630091"], ["updated_at", "2021-06-21 22:24:39.630091"], ["name", "Rey"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624313997/01038_sammah.jpg"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Rogue"], ["cost", 14], ["health", 10], ["rarity", "Legendary"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.641472"], ["updated_at", "2021-06-21 22:24:39.641472"], ["name", "Han Solo"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624314086/01046_nqkgyb.jpg"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Rogue"], ["cost", 13], ["health", 10], ["rarity", "Starter"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.652232"], ["updated_at", "2021-06-21 22:24:39.652232"], ["name", "Finn"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624314157/01045_gt7wjb.jpg"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("affiliation", "color", "cost", "health", "rarity", "set", "created_at", "updated_at", "name", "user_id", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["affiliation", "Hero"], ["color", "Rogue"], ["cost", 8], ["health", 9], ["rarity", "Rare"], ["set", "Awakenings"], ["created_at", "2021-06-21 22:24:39.663212"], ["updated_at", "2021-06-21 22:24:39.663212"], ["name", "Hired Gun"], ["user_id", 1], ["photo", "https://res.cloudinary.com/dloadb2bx/image/upload/v1624314235/01047_epo2m4.jpg"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/cards" for ::1 at 2021-06-21 19:24:40 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 31.8ms | Allocations: 6293)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 19.0ms | Allocations: 6676)
+
+
