@@ -47103,3 +47103,38 @@ Processing by Api::V1::CardsController#index as JSON
 Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 3483)
 
 
+Started GET "/api/v1/cards" for 127.0.0.1 at 2021-07-31 11:58:47 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 212.3ms | Allocations: 6367)
+Completed 200 OK in 214ms (Views: 212.8ms | ActiveRecord: 130.0ms | Allocations: 6750)
+
+
+Started GET "/api/v1/cards" for 127.0.0.1 at 2021-07-31 11:59:08 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 5.4ms | Allocations: 3098)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 1.1ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards/1" for 127.0.0.1 at 2021-07-31 11:59:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/cards/1"):
+  
+Started GET "/api/v1/cards/1" for 127.0.0.1 at 2021-07-31 11:59:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/cards/1"):
+  
+Started GET "/api/v1/cards" for 127.0.0.1 at 2021-07-31 11:59:28 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 8.4ms | Allocations: 3097)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.7ms | Allocations: 3485)
+
+

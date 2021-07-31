@@ -1,3 +1,4 @@
+
 ## Star Wars API
 ![Main](https://res.cloudinary.com/dloadb2bx/image/upload/v1627743154/starWarsAPI_qsngnd.png)
 
@@ -19,3 +20,17 @@
 - PostgreSQL -  12.7
 
 ## Database
+![UML](https://res.cloudinary.com/dloadb2bx/image/upload/v1627743876/starWarsbdwagon_xw8umn.png)
+
+The final version on project was:
+![enter image description here](https://res.cloudinary.com/dloadb2bx/image/upload/v1627743853/starWarsDB_srwkak.png)
+## API endpoint
+![API](https://res.cloudinary.com/dloadb2bx/image/upload/v1627743598/starWarsAPI_nc8i7a.gif)
+
+The endpoint to get all cards from the API is `http:localhost:3000/api/v1/cards`.
+
+## How to run this project?
+First of all, you need to start de backend server that are running on Rails. To do that open the `backend-api` folder and type `rails s` on terminal. To start the frontend you need to open the starwars-client folder and type `yarn start`
+
+**Backend**: running on port 3000
+**Frontend**: running on port 3001
