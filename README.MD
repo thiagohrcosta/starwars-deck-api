@@ -14,6 +14,10 @@
 ### Gems utilizadas
 
 
+### React Features used
+- useState;
+- useEffect;
+
 ### Versões
  - Ruby - 2.6.6
  - Rails - Rails 6.1.3.2
@@ -29,8 +33,18 @@ The final version on project was:
 
 The endpoint to get all cards from the API is `http:localhost:3000/api/v1/cards`.
 
+## Getting data
+![enter image description here](https://res.cloudinary.com/dloadb2bx/image/upload/v1627744447/swMain_xqnrkk.png)
+To get data from the API was used a async function fetchData which code can be seen below:
+
+    async function fetchData(){
+      const response = await api.get("cards");
+      setCards(response.data);
+  }
+
+
 ## How to run this project?
 First of all, you need to start de backend server that are running on Rails. To do that open the `backend-api` folder and type `rails s` on terminal. To start the frontend you need to open the starwars-client folder and type `yarn start`
 
-**Backend**: running on port 3000
-**Frontend**: running on port 3001
+**Backend**: running on port 3000 <br>
+**Frontend**: running on port 3001 <br>
