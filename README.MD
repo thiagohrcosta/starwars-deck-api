@@ -1,5 +1,5 @@
 ## Star Wars API
-![Main](https://res.cloudinary.com/dloadb2bx/image/upload/v1624461380/starwarsapi_aogt2f.png)
+![Main](https://res.cloudinary.com/dloadb2bx/image/upload/v1627743154/starWarsAPI_qsngnd.png)
 
 
 ## Technologies
