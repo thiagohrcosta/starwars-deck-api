@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
 import Cards from './components/Cards';
 import api from './services/api';
+import Banner from './components/Banner';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
 
   return (
     <div>
+      <NavBar />
+      <Banner />
       <Cards cards={cards}/>
     </div>
   );

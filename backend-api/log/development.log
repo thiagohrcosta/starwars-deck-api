@@ -46895,3 +46895,211 @@ Processing by Api::V1::CardsController#index as JSON
 Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 1.3ms | Allocations: 3483)
 
 
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:19:13 -0300
+  [1m[35m (111.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (182.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 434.0ms | Allocations: 10915)
+Completed 200 OK in 919ms (Views: 229.7ms | ActiveRecord: 349.1ms | Allocations: 12830)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:19:21 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 22.7ms | Allocations: 3108)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 1.1ms | Allocations: 3505)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:22:28 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (2.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 7.7ms | Allocations: 3108)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 2.0ms | Allocations: 3503)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:23:22 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 7.4ms | Allocations: 3098)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 1.8ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:26:53 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 7.6ms | Allocations: 3108)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 1.9ms | Allocations: 3503)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:27:17 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (2.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 6.8ms | Allocations: 3108)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 2.0ms | Allocations: 3503)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:32:20 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 15.2ms | Allocations: 3098)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 1.1ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:33:54 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 14.4ms | Allocations: 3098)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 1.3ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:34:40 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 13.0ms | Allocations: 3098)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 1.3ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:35:12 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 9.7ms | Allocations: 3098)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.1ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:35:26 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 15.4ms | Allocations: 3098)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 1.7ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:35:44 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 8.2ms | Allocations: 3098)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.6ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:36:02 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 7.1ms | Allocations: 3098)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.4ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:37:47 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 8.7ms | Allocations: 3098)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 1.8ms | Allocations: 3484)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:37:59 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 5.7ms | Allocations: 3098)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.2ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:38:31 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (2.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 10.5ms | Allocations: 3098)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 2.1ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:42:19 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (3.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 9.3ms | Allocations: 3098)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 3.0ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:42:37 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 7.3ms | Allocations: 3098)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.2ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:43:11 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 5.9ms | Allocations: 3098)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.1ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:44:07 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 6.7ms | Allocations: 3098)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:47:03 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 6.6ms | Allocations: 3098)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.5ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:49:35 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 6.6ms | Allocations: 3098)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 1.5ms | Allocations: 3483)
+
+
+Started GET "/api/v1/cards" for ::1 at 2021-07-31 11:50:40 -0300
+Processing by Api::V1::CardsController#index as JSON
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/views/api/v1/cards/index.json.jbuilder:1
+  Rendered api/v1/cards/index.json.jbuilder (Duration: 6.8ms | Allocations: 3098)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 3483)
+
+
