@@ -24,7 +24,7 @@
 ### React NPM packages
 - Axios
 
-### Versões
+### Versions
  - Ruby - 2.6.6
  - Rails - Rails 6.1.3.2
 - PostgreSQL -  12.7
